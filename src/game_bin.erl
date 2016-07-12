@@ -16,11 +16,11 @@
 -define(BITS, 32).
 -define(MUL(N), N bsl 2).
 -define(MSEC(T), T div 1000).
--define(COMPRES(V), V bsl 20 bor V). %V + 1 it is first jump decreasment
--define(COMPRES(A, B, C), A bsl 20 bor B bsl 20 bor C). %V + 1 it is first jump decreasment
+-define(COMPRES(V), V bsl 20 bor V).
+-define(COMPRES(A, B, C), A bsl 20 bor B bsl 20 bor C).
 -define(INDEX, (Jumps bsr 40)).
--define(SIZE, ((Jumps bsr 20) band 1048575)).
--define(JUMPS, (Jumps band 1048575)).
+-define(SIZE, ((Jumps bsr 20) band 16#FFFFF)).
+-define(JUMPS, (Jumps band 16#FFFFF)).
 
 %% ====================================================================
 %% API functions
