@@ -3,12 +3,13 @@
 
 %% cd("/home/awdf/workspace/testing/src").
 %% c(game_bin).
+%% game_bin:test(10).
 
 -module(game_bin).
 -export([prototype/1, preprocessing/1, calculate_jumps/2, test/1]).
 -export([test/3]).
 %% ====================================================================
-%% Module difinitions
+%% Module definitions
 %% ====================================================================
 
 -define(MAX_SIZE, 1000000).
@@ -65,7 +66,7 @@ loop(N, Model) ->
 			spawn(?MODULE, test, [self(), binary, Model]),
 			spawn(?MODULE, test, [self(), fastest, Model])
 	end,
-	loop(N -1, Model).
+loop(N -1, Model).
 
 prototype(1) -> [1];
 prototype(N) when N band 1 == 0 ->
